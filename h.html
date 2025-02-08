@@ -1,419 +1,150 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Heaven Point Coaching Classes</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Chocolate Day, Manshi ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #3e1e09, #2a0a05);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 10%;
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 65px;
+            text-shadow: 4px 4px 15px rgba(255, 193, 7, 0.8);
+        }
+        p {
+            font-size: 22px;
+            margin-top: -10px;
+        }
+        .heart {
+            font-size: 50px;
+            color: red;
+            animation: heartbeat 1.5s infinite alternate;
+        }
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            to { transform: scale(1.3); }
+        }
+        .chocolate-box {
+            width: 200px;
+            height: 200px;
+            background: url('https://i.imgur.com/dMJJ3Cj.png') no-repeat center;
+            background-size: cover;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0px 0px 15px rgba(255, 193, 7, 0.8));
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .button {
+            background: linear-gradient(45deg, #ff6b81, #ff4757);
+            padding: 15px 35px;
+            font-size: 20px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 30px;
+            box-shadow: 0 8px 18px rgba(255, 105, 135, 0.6);
+            transition: 0.4s;
+            font-weight: bold;
+        }
+        .button:hover {
+            background: linear-gradient(45deg, #d93a5d, #c0392b);
+            transform: scale(1.1);
+            box-shadow: 0 12px 25px rgba(255, 105, 135, 0.8);
+        }
+        .falling-chocolates, .falling-hearts {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-size: contain;
+            animation: fall linear infinite;
+        }
+        .falling-chocolates {
+            background: url('https://i.imgur.com/zX0AVJX.png') no-repeat center;
+        }
+        .falling-hearts {
+            background: url('https://i.imgur.com/Z8hvXsM.png') no-repeat center;
+        }
+        @keyframes fall {
+            from { transform: translateY(-100px); opacity: 1; }
+            to { transform: translateY(100vh); opacity: 0; }
+        }
+        .music-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 25px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+            transition: 0.3s;
+        }
+        .music-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-
-  <!-- Header Section -->
-  <header class="bg-blue-600 text-white py-4 sticky top-0 z-10">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6">
-      <h1 class="text-3xl font-bold">The Heaven Point Coaching Classes</h1>
-      <nav class="space-x-6">
-        <a href="#" class="hover:text-gray-200">Home</a>
-        <a href="#courses" class="hover:text-gray-200">Courses</a>
-        <a href="#about-us" class="hover:text-gray-200">About Us</a>
-        <a href="mailto:theheavenpoint@gmail.com" class="hover:text-gray-200">Contact</a>
-      </nav>
+<body>
+    <div class="container">
+        <h1>Happy Chocolate Day, Manshi ❤️</h1>
+        <p>You are sweeter than all the chocolates in the world! 🍫</p>
+        <span class="heart">❤️</span>
+        <div class="chocolate-box"></div>
+        <br>
+        <button class="button" onclick="showMessage()">Click for a Surprise!</button>
     </div>
-  </header>
 
-  <!-- About Us Section -->
-  <section id="about-us" class="my-8 px-6">
-    <div class="max-w-7xl mx-auto text-center">
-      <h2 class="text-2xl font-semibold">About Us</h2>
-      <p class="mt-4 text-lg">Hello My Dear Students! Welcome to Heaven Point Coaching Classes (THP Classes). Here, you can study a variety of subjects like Commerce, Maths, Physics, Chemistry, Biology, S. St., English Language, English Literature, Computer, Hindi, and more, for all boards. We also offer specialized courses for CUET, NEET, IIT, JEE, and classes from 3rd to 12th.</p>
+    <audio id="bg-music" loop>
+        <source src="https://www.dropbox.com/s/your-audio-file.mp3?dl=1" type="audio/mp3">
+    </audio>
+    
+    <div class="music-button" onclick="toggleMusic()">
+        🎵
     </div>
-  </section>
 
-  <!-- Faculty Section -->
-  <section class="my-8 px-6">
-    <div class="max-w-7xl mx-auto text-center">
-      <h2 class="text-2xl font-semibold">Meet Our Faculty</h2>
-      <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">Shivam Sir</h3>
-          <p class="text-gray-600">Math Expert</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">Kajal Ma'am</h3>
-          <p class="text-gray-600">Math Expert</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">Satyam Sir</h3>
-          <p class="text-gray-600">Hindi & English Expert</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">Sundaram Sir</h3>
-          <p class="text-gray-600">Science Expert</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">Rohit Sir</h3>
-          <p class="text-gray-600">SST Expert</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">Mohit Sir</h3>
-          <p class="text-gray-600">Science Expert</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold">Ayushi Ma'am</h3>
-          <p class="text-gray-600">Science Expert</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+        function showMessage() {
+            alert("You are my sweetest blessing, Manshi! 💖");
+        }
+        
+        function createFallingElement(type) {
+            let element = document.createElement('div');
+            element.classList.add(type);
+            element.style.left = Math.random() * window.innerWidth + "px";
+            element.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(element);
+            setTimeout(() => element.remove(), 5000);
+        }
+        
+        setInterval(() => createFallingElement('falling-chocolates'), 600);
+        setInterval(() => createFallingElement('falling-hearts'), 800);
 
-  <!-- Course Catalog Section -->
-  <section id="courses" class="my-8 px-6">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-2xl font-semibold text-center">Course Catalog</h2>
-      <div class="mt-4 flex justify-between">
-        <div class="space-x-4">
-          <label for="level" class="text-lg">Level:</label>
-          <select id="level" class="px-4 py-2 border rounded-lg">
-            <option value="beginner">Beginner</option>
-            <option value="intermediate">Intermediate</option>
-            <option value="advanced">Advanced</option>
-          </select>
-        </div>
-        <div class="space-x-4">
-          <label for="duration" class="text-lg">Duration:</label>
-          <select id="duration" class="px-4 py-2 border rounded-lg">
-            <option value="short">Short</option>
-            <option value="medium">Medium</option>
-            <option value="long">Long</option>
-          </select>
-        </div>
-        <div class="space-x-4">
-          <label for="rating" class="text-lg">Rating:</label>
-          <select id="rating" class="px-4 py-2 border rounded-lg">
-            <option value="5">5 Stars</option>
-            <option value="4">4 Stars</option>
-            <option value="3">3 Stars</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Course Grid -->
-      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Example Course Card -->
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-          <img src="https://via.placeholder.com/300" alt="Course Image" class="w-full h-48 object-cover rounded-lg">
-          <h3 class="mt-4 text-xl font-semibold">Maths for Class 10</h3>
-          <p class="mt-2 text-gray-600">A comprehensive course for mastering Maths at the 10th-grade level.</p>
-          <div class="mt-4 flex justify-between items-center">
-            <span class="text-lg font-semibold">₹500</span>
-            <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Enroll Now</a>
-          </div>
-        </div>
-        <!-- Add more course cards here -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Course Detail Section -->
-  <section id="course-detail" class="my-8 px-6">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl font-semibold">Maths for Class 10 - Course Detail</h2>
-      <div class="flex mt-6">
-        <!-- Video Preview -->
-        <div class="w-2/3">
-          <iframe width="100%" height="315" src="https://www.youtube.com/watch?v=rsYCvKwbzY0&t=1406s" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <!-- Syllabus Breakdown -->
-        <div class="w-1/3 pl-6">
-          <h3 class="text-xl font-semibold">Syllabus</h3>
-          <ul class="mt-4 text-gray-600">
-            <li>Algebra</li>
-            <li>Geometry</li>
-            <li>Trigonometry</li>
-            <li>Statistics</li>
-            <li>Calculus</li>
-          </ul>
-          <h3 class="mt-6 text-xl font-semibold">Instructor</h3>
-          <p class="mt-4">Instructor: Shivam Sir, Math Expert with 10+ years of experience.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Discussion Board Section -->
-  <section id="discussion-board" class="my-8 px-6">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-2xl font-semibold text-center">Discussion Board</h2>
-      <div class="mt-4">
-        <textarea class="w-full p-4 border rounded-lg" rows="4" placeholder="Ask your questions here..."></textarea>
-        <button class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Post Question</button>
-      </div>
-      <div class="mt-6 space-y-4">
-        <!-- Example Discussion Post -->
-        <div class="bg-gray-50 p-4 rounded-lg shadow-md">
-          <p class="font-semibold">Student 1</p>
-          <p class="text-gray-600 mt-2">How do I solve this equation? Can someone explain the steps?</p>
-        </div>
-        <!-- Add more discussion posts here -->
-      </div>
-    </div>
-  </section>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Heaven Point Coaching Classes</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .accordion-header { cursor: pointer; }
-    .hidden-content { display: none; }
-    .active-content { display: block; }
-    .carousel-container { display: flex; overflow-x: scroll; }
-    .carousel-item { min-width: 300px; margin-right: 16px; }
-    .hover-animate:hover { transform: scale(1.05); transition: 0.3s; }
-    .download-btn { background-color: #4A90E2; color: white; padding: 10px 20px; border-radius: 5px; }
-    .form-input { border: 1px solid #ccc; padding: 10px; border-radius: 5px; }
-    .highlight { background-color: #f0f0f0; padding: 10px; border-radius: 5px; }
-    .batch-card { border: 2px solid #4A90E2; padding: 16px; border-radius: 8px; background: #E5F3FF; text-align: center; }
-    .batch-image { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
-  </style>
-</head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- Batches Section -->
-  <section id="batches" class="p-6 bg-gray-50">
-    <h2 class="text-3xl font-bold mb-4">Our Batches</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="batch-card">
-        <img src="https://via.placeholder.com/300" alt="Batch A" class="batch-image mb-4">
-        <h3 class="text-2xl font-bold mb-2">Batch A</h3>
-        <p class="text-lg">Price: ₹500</p>
-        <button class="download-btn mt-4">Join Now</button>
-      </div>
-      <div class="batch-card">
-        <img src="https://via.placeholder.com/300" alt="Batch B" class="batch-image mb-4">
-        <h3 class="text-2xl font-bold mb-2">Batch B</h3>
-        <p class="text-lg">Price: ₹500</p>
-        <button class="download-btn mt-4">Join Now</button>
-      </div>
-      <div class="batch-card">
-        <img src="https://via.placeholder.com/300" alt="Batch C" class="batch-image mb-4">
-        <h3 class="text-2xl font-bold mb-2">Batch C</h3>
-        <p class="text-lg">Price: ₹500</p>
-        <button class="download-btn mt-4">Join Now</button>
-      </div>
-      <div class="batch-card">
-        <img src="https://via.placeholder.com/300" alt="Batch D" class="batch-image mb-4">
-        <h3 class="text-2xl font-bold mb-2">Batch D</h3>
-        <p class="text-lg">Price: ₹500</p>
-        <button class="download-btn mt-4">Join Now</button>
-      </div>
-    </div>
-  </section>
- 
-<!-- Gallery Section -->
-  <section id="gallery" class="p-6 bg-white">
-    <h2 class="text-3xl font-bold mb-4">Gallery</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <img src="https://via.placeholder.com/150" alt="Gallery Image" class="rounded shadow">
-      <img src="https://via.placeholder.com/150" alt="Gallery Image" class="rounded shadow">
-    </div>
-  </section>
-
-  <!-- Blog Section -->
-  <section id="blog" class="p-6 bg-gray-50">
-    <h2 class="text-3xl font-bold mb-4">Blog</h2>
-    <p>Stay updated with the latest news and articles related to exams, tips, and tricks.</p>
-  </section>
-
-  <!-- Admission Section -->
-  <section id="admission" class="p-6 bg-white">
-    <h2 class="text-3xl font-bold mb-4">Admission Process</h2>
-    <p>Find out how to enroll in our courses with step-by-step guidelines.</p>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="p-6 bg-white">
-    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-    <p>Email: <a href="mailto:theheavenpoint@gmail.com" class="text-blue-600">theheavenpoint@gmail.com</a></p>
-    <p>Phone: <a href="tel:8005759143" class="text-blue-600">8005759143</a></p>
-  </section>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Heaven Point Coaching Classes</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .accordion-header { cursor: pointer; }
-    .hidden-content { display: none; }
-    .active-content { display: block; }
-    .carousel-container { display: flex; overflow-x: scroll; }
-    .carousel-item { min-width: 300px; margin-right: 16px; }
-    .hover-animate:hover { transform: scale(1.05); transition: 0.3s; }
-    .download-btn { background-color: #4A90E2; color: white; padding: 10px 20px; border-radius: 5px; }
-    .form-input { border: 1px solid #ccc; padding: 10px; border-radius: 5px; }
-    .highlight { background-color: #f0f0f0; padding: 10px; border-radius: 5px; }
-  </style>
-</head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- Events Section -->
-  <section id="events" class="p-6 bg-white">
-    <h2 class="text-3xl font-bold mb-4">Upcoming Events</h2>
-    <ul>
-      <li class="highlight mb-2">Workshop on CUET Preparation - Jan 15, 2024</li>
-      <li class="highlight mb-2">NEET Crash Course - Feb 1, 2024</li>
-      <li class="highlight mb-2">JEE Advanced Test Series - March 10, 2024</li>
-    </ul>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery" class="p-6 bg-gray-50">
-    <h2 class="text-3xl font-bold mb-4">Gallery</h2>
-    <div class="carousel-container">
-      <img src="https://via.placeholder.com/300" alt="Gallery Image" class="carousel-item hover-animate">
-      <img src="https://via.placeholder.com/300" alt="Gallery Image" class="carousel-item hover-animate">
-      <img src="https://via.placeholder.com/300" alt="Gallery Image" class="carousel-item hover-animate">
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="p-6 bg-white">
-    <h2 class="text-3xl font-bold mb-4">What Our Students Say</h2>
-    <div class="carousel-container">
-      <div class="carousel-item p-4 bg-gray-200 rounded hover-animate">"Great coaching center!" - Student A</div>
-      <div class="carousel-item p-4 bg-gray-200 rounded hover-animate">"Best teachers and study material." - Student B</div>
-      <div class="carousel-item p-4 bg-gray-200 rounded hover-animate">"Highly recommended for JEE prep." - Student C</div>
-    </div>
-  </section>
-
+        let music = document.getElementById("bg-music");
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+    </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Heaven Point Coaching Classes</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .accordion-header { cursor: pointer; }
-    .hidden-content { display: none; }
-    .active-content { display: block; }
-    .carousel-container { display: flex; overflow-x: scroll; }
-    .carousel-item { min-width: 300px; margin-right: 16px; }
-    .hover-animate:hover { transform: scale(1.05); transition: 0.3s; }
-    .download-btn { background-color: #4A90E2; color: white; padding: 10px 20px; border-radius: 5px; }
-    .form-input { border: 1px solid #ccc; padding: 10px; border-radius: 5px; }
-    .highlight { background-color: #f0f0f0; padding: 10px; border-radius: 5px; }
-  </style>
-</head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- FAQ Section -->
-  <section id="faq" class="p-6 bg-white">
-    <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-    <div>
-      <div class="accordion-header text-xl font-semibold mb-2" onclick="toggleAccordion(1)">What courses do you offer?</div>
-      <div id="faq1" class="hidden-content highlight">We offer CUET, NEET, IIT, JEE, and classes 3rd to 12th.</div>
-    </div>
-    <div>
-      <div class="accordion-header text-xl font-semibold mt-4 mb-2" onclick="toggleAccordion(2)">How can I contact you?</div>
-      <div id="faq2" class="hidden-content highlight">Email: theheavenpoint@gmail.com | Phone: 8005759143</div>
-    </div>
-  </section>
-
-  <!-- Blog Section -->
-  <section id="blog" class="p-6 bg-gray-50">
-    <h2 class="text-3xl font-bold mb-4">Blog</h2>
-    <article class="bg-white p-4 shadow rounded mb-4">
-      <h3 class="text-xl font-semibold">Exam Tips and Tricks</h3>
-      <p class="text-gray-700">Get the best preparation tips for your upcoming exams, including time management and effective study methods.</p>
-    </article>
-    <article class="bg-white p-4 shadow rounded">
-      <h3 class="text-xl font-semibold">Latest Updates on Competitive Exams</h3>
-      <p class="text-gray-700">Stay updated with important dates and changes in the syllabus for NEET and JEE exams.</p>
-    </article>
-  </section>
-
-  <!-- Admission Process -->
-  <section id="admission" class="p-6 bg-white">
-    <h2 class="text-3xl font-bold mb-4">Admission Process</h2>
-    <ol class="list-decimal ml-6">
-      <li class="highlight mb-2">Fill out the admission form available online.</li>
-      <li class="highlight mb-2">Submit required documents.</li>
-      <li class="highlight mb-2">Appear for the entrance test (if applicable).</li>
-      <li class="highlight mb-2">Pay the admission fees.</li>
-      <li class="highlight">Confirm your seat.</li>
-    </ol>
-  </section>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Heaven Point Coaching Classes</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .accordion-header { cursor: pointer; }
-    .hidden-content { display: none; }
-    .active-content { display: block; }
-    .carousel-container { display: flex; overflow-x: scroll; }
-    .carousel-item { min-width: 300px; margin-right: 16px; }
-    .hover-animate:hover { transform: scale(1.05); transition: 0.3s; }
-    .download-btn { background-color: #4A90E2; color: white; padding: 10px 20px; border-radius: 5px; }
-    .form-input { border: 1px solid #ccc; padding: 10px; border-radius: 5px; }
-    .highlight { background-color: #f0f0f0; padding: 10px; border-radius: 5px; }
-  </style>
-</head>
-<body class="bg-gray-100 text-gray-800">
- <!-- Privacy Policy Section -->
-  <section id="privacy" class="p-6 bg-gray-50">
-    <h2 class="text-3xl font-bold mb-4">Privacy Policy</h2>
-    <p class="text-lg">We value your privacy and are committed to protecting your personal data. Our privacy policy explains how we collect, use, and safeguard your information.</p>
-    <p class="mt-4 text-lg">For more details, <a href="#" class="text-blue-600">read our full Privacy Policy here</a>.</p>
-  </section>
-
-  <!-- Careers Section -->
-  <section id="careers" class="p-6 bg-white">
-    <h2 class="text-3xl font-bold mb-4">Careers</h2>
-    <p class="text-lg mb-4">We are hiring! Join our passionate team of educators and make a difference in students' lives.</p>
-    <h3 class="text-xl font-semibold mb-2">Current Openings:</h3>
-    <ul>
-      <li class="highlight mb-2">Math Teacher - Apply Now</li>
-      <li class="highlight mb-2">Science Teacher - Apply Now</li>
-      <li class="highlight mb-2">English Teacher - Apply Now</li>
-      <li class="highlight">Administrative Assistant - Apply Now</li>
-    </ul>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="p-6 bg-white">
-    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-    <form class="space-y-4">
-      <div>
-        <label class="block mb-2">Name</label>
-        <input type="text" placeholder="Enter your name" class="form-input w-full">
-      </div>
-      <div>
-        <label class="block mb-2">Email</label>
-        <input type="email" placeholder="Enter your email" class="form-input w-full">
-      </div>
-      <div>
-        <label class="block mb-2">Message</label>
-        <textarea placeholder="Your message" class="form-input w-full"></textarea>
-      </div>
-      <button type="submit" class="download-btn w-full">Send Message</button>
-    </form>
-  </section>
-
-</body>
-</html>
-
-
-  <!-- Footer Section -->
-  <footer class="bg-gray-800 text-white py-6
